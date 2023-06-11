@@ -1,0 +1,13 @@
+<%= link_to "PIXELICIOUS", root_path %>
+
+<%# IF STATEMENT FOR WHEN USER IS LOGGED IN %>
+<%# IF USER IS SIGNED IN %>
+<% if user_signed_in? %>
+<%# USER CAN ACCESS FOLLOWING %>
+  <%= link_to "Upload new image", new_image_path, method: :new %>
+  <%= button_to "Log_out", destroy_user_session_path, method: :delete %>
+<%# IF USER NOT SIGNED_IN, NO OPTIONS AVAILABLE %>
+<% else %>
+  <% unless current_page?(images_path) %>
+  <% end %>
+<% end %>
