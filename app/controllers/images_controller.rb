@@ -18,7 +18,8 @@ class ImagesController < ApplicationController
     else
       # RENDER NEW IMAGE UPLOAD IF UNSUCCESSFUL
       render :new
-  new
+    end
+  end
 
   # SHOW IMAGE
   def show
@@ -37,4 +38,5 @@ class ImagesController < ApplicationController
   def image_params
     params.require(:image).permit(:title, :date_uploaded, :image)
   end
+
 end
