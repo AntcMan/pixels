@@ -1,1 +1,7 @@
 <h1>Photos by Ant</h1>
+<hr>
+<%= @images.each do |image| %>
+  <%= image_tag image.image %>
+  <h1><%= image.title %></h1>
+  <p>Date uploaded: <%= image.date_uploaded %></p>
+<% end %>
