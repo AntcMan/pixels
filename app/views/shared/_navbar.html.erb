@@ -1,13 +1,28 @@
-<%= link_to "PIXELICIOUS", root_path %>
+<div class="flex pt-6">
+  <h1 class="w-1/2 text-center font-bold">
+    <%= link_to "PIXELICIOUS", root_path %>
+  </h1>
+  <%# IF STATEMENT FOR WHEN USER IS LOGGED IN %>
+  <%# IF USER IS SIGNED IN %>
+  <div class="subhead text-center w-1/2">
+    <h2 class="text-gray-400 font-light pb-4">
+      BY ANTHONY
+    </h2>
+  </div>
+</div>
 
-<%# IF STATEMENT FOR WHEN USER IS LOGGED IN %>
-<%# IF USER IS SIGNED IN %>
-<% if user_signed_in? %>
-<%# USER CAN ACCESS FOLLOWING %>
-  <%= link_to "Upload new image", new_image_path, method: :new %>
-  <%= button_to "Log_out", destroy_user_session_path, method: :delete %>
-<%# IF USER NOT SIGNED_IN, NO OPTIONS AVAILABLE %>
-  <% else %>
-    <% unless current_page?(images_path) %>
+<div class="login-links flex py-2">
+  <% if user_signed_in? %>
+  <%# USER CAN ACCESS FOLLOWING %>
+    <div class="btn-upload w-1/2 flex items-center justify-center">
+      <%= link_to "Upload new image", new_image_path, method: :new %>
+    </div>
+    <div class="btn-logout w-1/2 flex items-center justify-center">
+      <%= button_to "Log out", destroy_user_session_path, method: :delete %>
+    </div>
+    <%# IF USER NOT SIGNED_IN, NO OPTIONS AVAILABLE %>
+      <% else %>
+        <% unless current_page?(images_path) %>
+      <% end %>
   <% end %>
-<% end %>
+</div>

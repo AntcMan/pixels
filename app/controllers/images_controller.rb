@@ -13,6 +13,7 @@ class ImagesController < ApplicationController
   def create
     @image = Image.new(image_params)
     @image.user = current_user
+    @image.date_uploaded = params[:image][:date_uploaded].to_date
     if @image.save
       redirect_to images_path, notice: 'Image successfully uploaded'
     else
@@ -38,5 +39,4 @@ class ImagesController < ApplicationController
   def image_params
     params.require(:image).permit(:title, :date_uploaded, :image)
   end
-
 end
