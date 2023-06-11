@@ -1,8 +1,8 @@
-<h1>Photos by Ant</h1>
-<hr>
-<% @images.each do |image| %>
-  <%= image_tag image.image %>
-  <h1><%= image.title %></h1>
-  <%# <p>Date uploaded: <%= image.date_uploaded %>
-  <p>Added <%= time_ago_in_words(image.created_at) %> ago</p>
-<% end %>
+<div class="body-masonry">
+  <% @images.each do |image| %>
+    <%= image_tag image.image %>
+    <h1><%= image.title %></h1>
+    <%# <p>Date uploaded: <%= image.date_uploaded %>
+    <p>Added <%= time_ago_in_words(image.created_at) %> ago</p>
+  <% end %>
+</div>
