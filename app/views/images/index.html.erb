@@ -1,6 +1,7 @@
-<div class="body-masonry">
+<%# MASONRY CODE STARTS HERE %>
+<div class="body-masonry columns-1 md:columns-2 lg:columns-3 gap-4 pb-20">
   <% @images.each do |image| %>
-    <%= image_tag image.image %>
+    <%= image_tag image.image, class: "rounded" %>
     <h1><%= image.title %></h1>
     <%# <p>Date uploaded: <%= image.date_uploaded %>
     <p>Added <%= time_ago_in_words(image.created_at) %> ago</p>
