@@ -1,5 +1,4 @@
 class ImagesController < ApplicationController
-
   # INDEX ALL IMAGES/HOMEPAGE
   def index
     @images = Image.all

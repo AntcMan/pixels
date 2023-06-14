@@ -1,11 +1,14 @@
 <div class="body-masonry columns-1 md:columns-2 lg:columns-3 gap-4 pb-20">
   <% @images.each do |image| %>
     <div class="masonry-image relative group cursor-pointer">
-      <%= image_tag image.image, class: "rounded mb-4", data: { controller: "image-modal"} %>
-      <div class="masonry-content rounded absolute inset-0 flex items-center justify-center text-center bg-black bg-opacity-75 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <%= link_to image_path(image), class: "rounded mb-4" do %>
+        <%= image_tag image.image, class: "rounded mb-4", href: "#" %>
+      <% end %>
+
+      <div class="rounded absolute inset-0 flex items-center justify-center text-center bg-black bg-opacity-75 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <div>
           <h1 class="text-white font-bold uppercase text-2xl"><%= image.title %></h1>
-            <br>
+          <br>
           <p class="text-white text-xs text-light">Added <%= time_ago_in_words(image.created_at) %> ago</p>
         </div>
       </div>
