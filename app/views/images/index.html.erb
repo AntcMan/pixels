@@ -1,18 +1,11 @@
-<%# MASONRY CLASS BASED ON SCREEN SIZE(RESPONSIVE), ADDED BOTTOM PADDING AND COLUMN GAP %>
 <div class="body-masonry columns-1 md:columns-2 lg:columns-3 gap-4 pb-20">
   <% @images.each do |image| %>
-  <%# POSITION THE MASONRY-IMAGE ELEMENT, SET THE GROUP HOVER FUNCTION TO CHILD VIA PARENT CLASS %>
-    <div class="masonry-image relative group">
-    <%# LOOP THROUGH THE IMAGES, ROUNDED THE EDGES, ADDITION MARGIN BOTTOM 4 UNITS %>
-      <%= image_tag image.image, class: "rounded mb-4" %>
-      <%# FLEX LAYOUT; CENTER ITEMS, SET THE BACKGROUND OPACITY TO BLACK W/ OPACITY OF 75,INCL TRANSITION EFFECT %>
-      <%# USE ABSOLUTE TO POSITION THE ELEMENT; INSET-0 SETS TOP, BOTTOM, LEFT, RIGHT PROPERTIES TO 0 TO COVER THE PARENT ELEMENT %>
+    <div class="masonry-image relative group cursor-pointer">
+      <%= image_tag image.image, class: "rounded mb-4", data: { controller: "image-modal"} %>
       <div class="masonry-content rounded absolute inset-0 flex items-center justify-center text-center bg-black bg-opacity-75 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <div>
-        <%# ADD IMAGE TITLE W/ STYLING %>
           <h1 class="text-white font-bold uppercase text-2xl"><%= image.title %></h1>
             <br>
-            <%# ADD P TEXT W/ STYLING %>
           <p class="text-white text-xs text-light">Added <%= time_ago_in_words(image.created_at) %> ago</p>
         </div>
       </div>
