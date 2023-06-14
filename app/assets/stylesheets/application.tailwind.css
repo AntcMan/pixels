@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import 'masonry.css';
+/* @import '/app/assets/stylesheets/components/masonry' */
 
 /*
 
