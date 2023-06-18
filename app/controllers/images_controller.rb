@@ -2,6 +2,7 @@ class ImagesController < ApplicationController
   # INDEX ALL IMAGES/HOMEPAGE
   def index
     @images = Image.all
+    @images = Image.order(created_at: params[:sort] || :desc)
   end
 
   # CREATE NEW INSTANCE OF IMAGE
@@ -21,6 +22,28 @@ class ImagesController < ApplicationController
     end
   end
 
+  # EDIT IMAGE
+  def edit
+    @image = Image.find(params[:id])
+  end
+
+  # UPDATE IMAGE
+  def update
+    @image = Image.find(params[:id])
+    if @image.update(image_params)
+      flash[:success] = "Image title updated!"
+      redirect_to images_path
+    else
+      render :edit, status: :unprocessable_entity
+      flash[:error] = "Image title was not updated!"
+    end
+  end
+
+  # IMAGES INDEX
+  def index_list
+    @images = Image.all
+  end
+
   # SHOW IMAGE
   def show
     @image = Image.find(params[:id])
@@ -30,7 +53,7 @@ class ImagesController < ApplicationController
   def destroy
     @image = Image.find(params[:id])
     @image.destroy
-    redirect_to images_path, notice: 'Image deleted'
+    redirect_to images_path
   end
 
   private
