@@ -8,7 +8,7 @@
           <%= image.title %>
           <%# # EDIT IMAGE PAGE %>
           <div class="btn-edit w-1/2 text-center hover:underline cursor-pointer text-blue-800">
-            <%= link_to "Edit image", image_path(image), method: :edit %>
+            <%= link_to "Edit image", edit_image_path(image) %>
           </div>
           <%# # DELETE IMAGE ACTION %>
           <div class="btn-delete w-1/2 text-center hover:underline cursor-pointer text-red-800">

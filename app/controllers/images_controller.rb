@@ -21,6 +21,20 @@ class ImagesController < ApplicationController
     end
   end
 
+  # EDIT IMAGE
+  def edit
+    @image = Image.find(params[:id])
+  end
+
+  # UPDATE IMAGE
+  def update
+    if @image.update(image_params)
+      redirect_to images_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   # IMAGES INDEX
   def index_list
     @images = Image.all
