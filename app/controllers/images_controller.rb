@@ -28,10 +28,13 @@ class ImagesController < ApplicationController
 
   # UPDATE IMAGE
   def update
+    @image = Image.find(params[:id])
     if @image.update(image_params)
+      flash[:success] = "Image title updated!"
       redirect_to images_path
     else
       render :edit, status: :unprocessable_entity
+      flash[:error] = "Image title was not updated!"
     end
   end
 
