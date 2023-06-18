@@ -5,12 +5,13 @@
   <hr>
   <div class="image_index">
     <%= images.each do |image| %>
-    <%= image.title %>
+      <%= image.title %>
     <div class="btn-del w-1/2 text-center hover:underline cursor-pointer text-red-500">
-      <%= button_to "Delete image", @image, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+      <%= button_to "Edit image", edit_image_path(image) %>
     </div>
     <div class="btn-del w-1/2 text-center hover:underline cursor-pointer text-red-500">
       <%= button_to "Delete image", @image, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
     </div>
+    <% end %>
   </div>
 </div>
