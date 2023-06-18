@@ -1,0 +1,22 @@
+<div class="section">
+  <h1>Image Index</h1>
+  <hr>
+  <div class="image_index">
+    <ul>
+      <% @images.each do |image| %>
+        <li class="border border-4">
+          <%= image.title %>
+          <%# # EDIT IMAGE PAGE %>
+          <div class="btn-edit w-1/2 text-center hover:underline cursor-pointer text-blue-800">
+            <%= link_to "Edit image", image_path(image), method: :edit %>
+          </div>
+          <%# # DELETE IMAGE ACTION %>
+          <div class="btn-delete w-1/2 text-center hover:underline cursor-pointer text-red-800">
+            <%= button_to "Delete image", @image, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+          </div>
+        </li>
+
+      <% end %>
+    </ul>
+  </div>
+</div>

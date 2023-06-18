@@ -21,6 +21,11 @@ class ImagesController < ApplicationController
     end
   end
 
+  # IMAGES INDEX
+  def index_list
+    @images = Image.all
+  end
+
   # SHOW IMAGE
   def show
     @image = Image.find(params[:id])
