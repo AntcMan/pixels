@@ -2,6 +2,7 @@ class ImagesController < ApplicationController
   # INDEX ALL IMAGES/HOMEPAGE
   def index
     @images = Image.all
+    @images = Image.order(created_at: params[:sort] || :desc)
   end
 
   # CREATE NEW INSTANCE OF IMAGE
