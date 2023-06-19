@@ -1,9 +1,8 @@
 <div data-controller="previews">
-  <%= form.label :image %>
   <%= form.file_field :image,
   direct_upload: true,
   data: { previews_target: "input", action: "change->previews#preview"} %>
-  <div class="image-preview h-100 w-auto">
-    <img data-previews-target="preview">
+  <div class="image-container h-48 w-96">
+    <img data-previews-target="preview" />
   </div>
 </div>
