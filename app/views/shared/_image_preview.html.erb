@@ -1,4 +1,9 @@
 <div data-controller="previews">
-    <%= form.label :date_uploaded %>
-    <%= form.date_field :date_uploaded %>
+  <%= form.label :image %>
+  <%= form.file_field :image,
+  direct_upload: true,
+  data: { previews_target: "input", action: "change->previews#preview"} %>
+  <div class="image-preview h-100 w-auto">
+    <img data-previews-target="preview">
   </div>
+</div>
