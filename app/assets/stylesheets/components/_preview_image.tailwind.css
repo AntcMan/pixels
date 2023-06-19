@@ -1,0 +1,8 @@
+.preview-image {
+  height: 200px;
+  margin-bottom: 12px;
+}
+
+.preview-image img {
+  object-fit: contain;
+}
