@@ -4,14 +4,18 @@
     <%= form.label :image %>
     <%= form.file_field :image %>
   </div>
+
   <div>
     <%= form.label :title %>
     <%= form.text_field :title, placeholder: "Add image title" %>
   </div>
-  <div>
+
+  <%# <div>
     <%= form.label :date_uploaded %>
-    <%= form.date_field :date_uploaded %>
-  </div>
+    <%# <%= form.date_field :date_uploaded %>
+  <%# </div> %>
+
+  <%= render 'shared/image_preview', form: form, image: @image %>
 
   <div>
     <%= form.button 'Upload Image' %>
