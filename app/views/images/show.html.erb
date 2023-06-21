@@ -1,5 +1,13 @@
-<div class="section flex flex-col">
-  <div class="image flex items-center justify-center">
-    <%= image_tag @image.image, class: 'w-1/2 h-auto' %>
+<%= turbo_frame_tag "modal" do %>
+
+  <div class="section flex flex-col">
+    <div class="image flex items-center justify-center">
+      <%= image_tag @image.image, class: 'w-1/2 h-auto' %>
+      <%= link_to "Close", root_path, data: {
+        controller: "modals",
+        action: "modals#close"
+      }  %>
+    </div>
   </div>
-</div>
+
+<% end %>
