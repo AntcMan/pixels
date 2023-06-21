@@ -3,10 +3,7 @@
   <div class="section flex flex-col">
     <div class="image flex items-center justify-center">
       <%= image_tag @image.image, class: 'w-1/2 h-auto' %>
-      <%= link_to "Close", root_path, data: {
-        controller: "modals",
-        action: "modals#close"
-      }  %>
+      <%= link_to "X", root_path, data: { action: "click->modals#close" }, class: "text-2xl" %>
     </div>
   </div>
 
